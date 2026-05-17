@@ -1,6 +1,6 @@
 "use client";
 
-import { useConnection } from "wagmi";
+import { useAccount } from "wagmi";
 import { toast } from "sonner";
 import { useWillInfo, useStelMemoWrite, useScheduleCron } from "@/lib/hooks";
 import { STELMEMO_ABI } from "@/lib/abi";
@@ -8,7 +8,7 @@ import { CONTRACT_ADDRESS } from "@/lib/contract";
 import { CountdownTimer } from "./CountdownTimer";
 
 export function CheckIn() {
-  const { address } = useConnection();
+  const { address } = useAccount();
   const { data: willData } = useWillInfo(address);
   const { writeContract, isPending, isConfirming } = useStelMemoWrite();
   const { scheduleCron, isScheduling } = useScheduleCron();

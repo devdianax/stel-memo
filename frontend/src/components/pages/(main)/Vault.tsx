@@ -3,7 +3,7 @@
 import Image from "next/image";
 import { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
-import { useConnection } from "wagmi";
+import { useAccount } from "wagmi";
 import { parseEther, formatEther } from "viem";
 import { toast } from "sonner";
 import { useVaultXLM, useWillInfo, useStelMemoWrite, useScheduleCron } from "@/lib/hooks";
@@ -44,7 +44,7 @@ const TOKEN_OPTIONS: TokenOption[] = [
 ];
 
 export function Vault() {
-  const { address } = useConnection();
+  const { address } = useAccount();
   const { data: vaultData, refetch: refetchVault } = useVaultXLM(address);
   const { data: willData } = useWillInfo(address);
   const { writeContract, isPending, isConfirming } = useStelMemoWrite();

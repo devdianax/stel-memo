@@ -1,7 +1,7 @@
 "use client";
 
 import { useState } from "react";
-import { useConnection, useDisconnect } from "wagmi";
+import { useAccount, useDisconnect } from "wagmi";
 import { toast } from "sonner";
 import { useWillInfo, useStelMemoWrite, useScheduleCron } from "@/lib/hooks";
 import { STELMEMO_ABI } from "@/lib/abi";
@@ -9,7 +9,7 @@ import { CONTRACT_ADDRESS } from "@/lib/contract";
 import type { InactivePeriod } from "@/types";
 
 export function Settings() {
-  const { address } = useConnection();
+  const { address } = useAccount();
   const { disconnect } = useDisconnect();
   const { data: willData } = useWillInfo(address);
   const { writeContract, isPending, isConfirming } = useStelMemoWrite();

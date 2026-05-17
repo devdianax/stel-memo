@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useConnection } from "wagmi";
+import { useAccount } from "wagmi";
 import { formatEther } from "viem";
 import { useWillInfo, useWillStatus, useVaultXLM, formatStatus } from "@/lib/hooks";
 import { StatusBadge } from "./StatusBadge";
@@ -9,7 +9,7 @@ import { CountdownTimer } from "./CountdownTimer";
 import { DashboardStats } from "./DashboardStats";
 
 export function Dashboard() {
-  const { address } = useConnection();
+  const { address } = useAccount();
   const { data: willData, isLoading: willLoading } = useWillInfo(address);
   const { data: statusData } = useWillStatus(address);
   const { data: vaultData } = useVaultXLM(address);

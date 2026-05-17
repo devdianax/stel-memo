@@ -1,6 +1,6 @@
 "use client";
 
-import { useConnection } from "wagmi";
+import { useAccount } from "wagmi";
 import { formatEther } from "viem";
 import { useCheckInHistory, useVaultHistory } from "@/lib/hooks";
 
@@ -14,7 +14,7 @@ const ACT_TYPE_LABEL: Record<number, string> = {
 };
 
 export function History() {
-  const { address } = useConnection();
+  const { address } = useAccount();
   const { data: checkInData } = useCheckInHistory(address);
   const { data: vaultData } = useVaultHistory(address);
 
