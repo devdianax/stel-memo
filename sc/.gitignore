@@ -1,0 +1,35 @@
+# Node modules
+/node_modules
+
+# Compilation output
+/dist
+
+# pnpm deploy output
+/bundle
+
+# Hardhat Build Artifacts
+/artifacts
+
+# Hardhat compilation (v2) support directory
+/cache
+
+# Typechain output
+/types
+/typechain-types
+
+# Dummy/generated files
+contracts/Counter.sol
+test/Counter.ts
+contracts/package.json
+contracts/package-lock.json
+/scripts
+
+# Hardhat coverage reports
+/coverage
+
+.env
+.env.local
+.env.*
+
+# Hardhat Ignition deployment artifacts
+ignition/deployments
